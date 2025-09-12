@@ -13,8 +13,8 @@ This extension is the digital mop you didn't know you needed. It integrates dire
 
 This extension provides two simple but powerful commands:
 
-*   **Clean Comments (Keep MARKS)**: Nukes all `// ...` and `/* ... */` comments from the file. It's smart enough to leave your precious `// MARK:` directives untouched, so your code organization remains intact.
-*   **Clean Print Statements**: Eradicates every last `print()` statement, ensuring your console stays clean on release builds.
+*   **Clean Comments**: Nukes all `// ...` and `/* ... */` comments from the file. It's smart enough to leave your precious `// MARK:` directives untouched, so your code organization remains intact.
+*   **Clean Prints**: Eradicates every last `print()` statement, ensuring your console stays clean on release builds.
 
 ## How to Build and Install from Source
 
