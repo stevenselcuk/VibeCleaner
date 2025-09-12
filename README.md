@@ -14,6 +14,10 @@ Ever asked an AI for a quick code snippet and received a novel of useless commen
 
 This extension is the digital mop you didn't know you needed. It integrates directly into Xcode's "Editor" menu and allows you to instantly wipe your active source file clean of AI-generated junk, helping you take back control of your codebase.
 
+```js 
+It's not removing // MARK: This mark comments
+```
+
 ### Features
 
 This extension provides two simple but powerful commands:
