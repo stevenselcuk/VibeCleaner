@@ -6,14 +6,77 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0AFE84532E743F0B00B49D48 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFE84522E743F0B00B49D48 /* Cocoa.framework */; };
+		0AFE845F2E743F0B00B49D48 /* VibeClean.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0AFE84502E743F0B00B49D48 /* VibeClean.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		0AFE84652E743F4B00B49D48 /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFE84542E743F0B00B49D48 /* XcodeKit.framework */; };
+		0AFE84662E743F4B00B49D48 /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0AFE84542E743F0B00B49D48 /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0AFE845D2E743F0B00B49D48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0AFE84352E743EEB00B49D48 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0AFE844F2E743F0B00B49D48;
+			remoteInfo = VibeClean;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0AFE84642E743F0B00B49D48 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0AFE845F2E743F0B00B49D48 /* VibeClean.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0AFE84672E743F4B00B49D48 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0AFE84662E743F4B00B49D48 /* XcodeKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0AFE843D2E743EEB00B49D48 /* VibeCleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VibeCleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AFE84502E743F0B00B49D48 /* VibeClean.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VibeClean.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		0AFE84522E743F0B00B49D48 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		0AFE84542E743F0B00B49D48 /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		0AFE84602E743F0B00B49D48 /* Exceptions for "VibeClean" folder in "VibeClean" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 0AFE844F2E743F0B00B49D48 /* VibeClean */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		0AFE843F2E743EEB00B49D48 /* VibeCleaner */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = VibeCleaner;
+			sourceTree = "<group>";
+		};
+		0AFE84562E743F0B00B49D48 /* VibeClean */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				0AFE84602E743F0B00B49D48 /* Exceptions for "VibeClean" folder in "VibeClean" target */,
+			);
+			path = VibeClean;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -26,6 +89,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0AFE844D2E743F0B00B49D48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0AFE84532E743F0B00B49D48 /* Cocoa.framework in Frameworks */,
+				0AFE84652E743F4B00B49D48 /* XcodeKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -33,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				0AFE843F2E743EEB00B49D48 /* VibeCleaner */,
+				0AFE84562E743F0B00B49D48 /* VibeClean */,
+				0AFE84512E743F0B00B49D48 /* Frameworks */,
 				0AFE843E2E743EEB00B49D48 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,8 +115,18 @@
 			isa = PBXGroup;
 			children = (
 				0AFE843D2E743EEB00B49D48 /* VibeCleaner.app */,
+				0AFE84502E743F0B00B49D48 /* VibeClean.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		0AFE84512E743F0B00B49D48 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE84522E743F0B00B49D48 /* Cocoa.framework */,
+				0AFE84542E743F0B00B49D48 /* XcodeKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -55,10 +139,12 @@
 				0AFE84392E743EEB00B49D48 /* Sources */,
 				0AFE843A2E743EEB00B49D48 /* Frameworks */,
 				0AFE843B2E743EEB00B49D48 /* Resources */,
+				0AFE84642E743F0B00B49D48 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0AFE845E2E743F0B00B49D48 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				0AFE843F2E743EEB00B49D48 /* VibeCleaner */,
@@ -69,6 +155,29 @@
 			productName = VibeCleaner;
 			productReference = 0AFE843D2E743EEB00B49D48 /* VibeCleaner.app */;
 			productType = "com.apple.product-type.application";
+		};
+		0AFE844F2E743F0B00B49D48 /* VibeClean */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0AFE84612E743F0B00B49D48 /* Build configuration list for PBXNativeTarget "VibeClean" */;
+			buildPhases = (
+				0AFE844C2E743F0B00B49D48 /* Sources */,
+				0AFE844D2E743F0B00B49D48 /* Frameworks */,
+				0AFE844E2E743F0B00B49D48 /* Resources */,
+				0AFE84672E743F4B00B49D48 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				0AFE84562E743F0B00B49D48 /* VibeClean */,
+			);
+			name = VibeClean;
+			packageProductDependencies = (
+			);
+			productName = VibeClean;
+			productReference = 0AFE84502E743F0B00B49D48 /* VibeClean.appex */;
+			productType = "com.apple.product-type.xcode-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -81,6 +190,9 @@
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					0AFE843C2E743EEB00B49D48 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					0AFE844F2E743F0B00B49D48 = {
 						CreatedOnToolsVersion = 16.4;
 					};
 				};
@@ -100,12 +212,20 @@
 			projectRoot = "";
 			targets = (
 				0AFE843C2E743EEB00B49D48 /* VibeCleaner */,
+				0AFE844F2E743F0B00B49D48 /* VibeClean */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0AFE843B2E743EEB00B49D48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0AFE844E2E743F0B00B49D48 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +242,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0AFE844C2E743F0B00B49D48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0AFE845E2E743F0B00B49D48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0AFE844F2E743F0B00B49D48 /* VibeClean */;
+			targetProxy = 0AFE845D2E743F0B00B49D48 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0AFE84472E743EEC00B49D48 /* Debug */ = {
@@ -299,6 +434,60 @@
 			};
 			name = Release;
 		};
+		0AFE84622E743F0B00B49D48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = VibeClean/VibeClean.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9937MYTBBA;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VibeClean/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = VibeClean;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tabbycat.devtools.VibeCleaner.VibeClean;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		0AFE84632E743F0B00B49D48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = VibeClean/VibeClean.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9937MYTBBA;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VibeClean/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = VibeClean;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tabbycat.devtools.VibeCleaner.VibeClean;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -316,6 +505,15 @@
 			buildConfigurations = (
 				0AFE844A2E743EEC00B49D48 /* Debug */,
 				0AFE844B2E743EEC00B49D48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0AFE84612E743F0B00B49D48 /* Build configuration list for PBXNativeTarget "VibeClean" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0AFE84622E743F0B00B49D48 /* Debug */,
+				0AFE84632E743F0B00B49D48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
