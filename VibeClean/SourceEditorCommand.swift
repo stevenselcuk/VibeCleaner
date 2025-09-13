@@ -27,23 +27,36 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     
     private func handleCleanComments(in buffer: XCSourceTextBuffer) {
         var content = buffer.completeBuffer
-        
         let multiLineCommentPattern = "/\\*.*?\\*/"
+        
         if let regex = try? NSRegularExpression(pattern: multiLineCommentPattern, options: .dotMatchesLineSeparators) {
             let range = NSRange(content.startIndex..., in: content)
-            content = regex.stringByReplacingMatches(in: content, options: [], range: range, withTemplate: "")
+            content = regex.stringByReplacingMatches(in: content, options: [], range: range, withTemplate: "\n")
         }
         
-        var lines = content.components(separatedBy: .newlines)
-        let singleLineCommentPattern = #"^\s*//(?! MARK:).*"#
+        let lines = content.components(separatedBy: .newlines)
+        var finalLines: [String] = []
         
-        lines.removeAll { line in
-            line.range(of: singleLineCommentPattern, options: .regularExpression) != nil
+        let fullLineCommentPattern = #"^\s*//.*"#
+        let trailingCommentPattern = #"\s*//.*$"#
+        let trailingRegex = try? NSRegularExpression(pattern: trailingCommentPattern, options: [])
+        
+        for line in lines {
+            if line.range(of: fullLineCommentPattern, options: .regularExpression) != nil {
+                continue
+            }
+            
+            var processedLine = line
+            if let regex = trailingRegex {
+                let range = NSRange(processedLine.startIndex..., in: processedLine)
+                processedLine = regex.stringByReplacingMatches(in: processedLine, options: [], range: range, withTemplate: "")
+            }
+            
+            finalLines.append(processedLine)
         }
         
-        let finalContent = lines.joined(separator: "\n")
         buffer.lines.removeAllObjects()
-        buffer.lines.add(finalContent)
+        buffer.lines.addObjects(from: finalLines)
     }
     
     private func handleCleanPrints(in buffer: XCSourceTextBuffer) {
