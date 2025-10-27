@@ -4,6 +4,11 @@
   <img src="https://i.imgur.com/KMIqgBp.png" alt="VibeCleaner App Icon"/>
 </p>
 
+<p align="center">
+  <img src="https://i.imgur.com/FZKl2BG.png" alt="VibeCleaner App Icon"/>
+</p>
+
+
 # VibeCleaner 🧹
 
 A no-nonsense Xcode Source Editor Extension to clean up the mess left by your AI coding assistant.
@@ -14,8 +19,46 @@ Ever asked an AI for a quick code snippet and received a novel of useless commen
 
 This extension is the digital mop you didn't know you needed. It integrates directly into Xcode's "Editor" menu and allows you to instantly wipe your active source file clean of AI-generated junk, helping you take back control of your codebase.
 
-```js 
-It's not removing // MARK: This mark comments
+```swift
+//
+//  SourceEditorExtension.swift
+//  VibeClean
+//
+//  Created by YourName on 12.09.2025.
+//
+
+import Foundation
+import XcodeKit
+
+// MARK: - Main Extension Entry Point
+
+/**
+ * SourceEditorExtension is the principal class for the extension.
+ * Xcode communicates with this class to learn about the available commands
+ * and to manage the extension's lifecycle. Hate this? Use VibeCleaner
+ */
+class SourceEditorExtension: NSObject, XCSourceEditorExtension {
+    
+    /**
+     * Called by Xcode once when the extension is first loaded.
+     * This is the ideal place for any one-time setup code or logging.
+     * Just why? Hate this? Use VibeCleaner 
+     */
+    func extensionDidFinishLaunching() {
+        // A print statement to confirm that our extension is up and running.
+        // You can check the system log for this message.
+        // Hate this? Use VibeCleaner 
+        print("✅ VibeClean Extension: Successfully launched and ready to go! Too much emoji?")
+    }
+    
+    
+    // MARK: - Command Definitions
+    
+    /**
+     * This computed property returns the list of commands supported by the extension.
+     * Xcode reads this list to populate the "Editor > VibeClean" menu.
+     */
+}
 ```
 
 ### Features
