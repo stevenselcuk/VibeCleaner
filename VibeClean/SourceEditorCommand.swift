@@ -31,28 +31,55 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         
         if let regex = try? NSRegularExpression(pattern: multiLineCommentPattern, options: .dotMatchesLineSeparators) {
             let range = NSRange(content.startIndex..., in: content)
-            content = regex.stringByReplacingMatches(in: content, options: [], range: range, withTemplate: "\n")
+            content = regex.stringByReplacingMatches(in: content, options: [], range: range, withTemplate: "")
         }
         
         let lines = content.components(separatedBy: .newlines)
         var finalLines: [String] = []
         
-        let fullLineCommentPattern = #"^\s*//.*"#
-        let trailingCommentPattern = #"\s*//.*$"#
-        let trailingRegex = try? NSRegularExpression(pattern: trailingCommentPattern, options: [])
-        
         for line in lines {
-            if line.range(of: fullLineCommentPattern, options: .regularExpression) != nil {
-                continue
+            var commentStartIndex: String.Index?
+            var inString = false
+            var isEscaped = false
+
+            for i in line.indices {
+                if isEscaped {
+                    isEscaped = false
+                    continue
+                }
+
+                let char = line[i]
+                if char == "\\" {
+                    isEscaped = true
+                    continue
+                }
+
+                if char == "\"" {
+                    inString = !inString
+                }
+
+                if !inString && char == "/" {
+                    let nextIndex = line.index(after: i)
+                    if nextIndex < line.endIndex && line[nextIndex] == "/" {
+                        commentStartIndex = i
+                        break
+                    }
+                }
             }
-            
-            var processedLine = line
-            if let regex = trailingRegex {
-                let range = NSRange(processedLine.startIndex..., in: processedLine)
-                processedLine = regex.stringByReplacingMatches(in: processedLine, options: [], range: range, withTemplate: "")
+
+            if let startIndex = commentStartIndex {
+                let codePart = String(line[..<startIndex])
+
+                if !codePart.trimmingCharacters(in: .whitespaces).isEmpty {
+                    var finalLine = codePart
+                    while let lastChar = finalLine.last, lastChar.isWhitespace {
+                        finalLine.removeLast()
+                    }
+                    finalLines.append(finalLine)
+                }
+            } else {
+                finalLines.append(line)
             }
-            
-            finalLines.append(processedLine)
         }
         
         buffer.lines.removeAllObjects()
@@ -71,7 +98,8 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         }
         
         if !linesToRemove.isEmpty {
-            buffer.lines.removeObjects(at: IndexSet(linesToRemove.reversed()))
+            let reversedIndexes = IndexSet(linesToRemove.reversed())
+            buffer.lines.removeObjects(at: reversedIndexes)
         }
     }
 }
