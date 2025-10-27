@@ -71,8 +71,10 @@ This extension provides two simple but powerful commands:
 
 ## Download 
 
-It's ready to download on `Release` section 
-[Go to release](https://github.com/stevenselcuk/VibeCleaner/releases/)
+It's ready to download on `App Store`  
+[AppStore](https://apps.apple.com/us/app/vibecleaner/id6752489272)
+
+*   **PS**: Don't forget to give 5 x ⭐️ and write a comment (if you would of course)
 
 ## How to Build and Install from Source
 
